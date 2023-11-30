@@ -5,10 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/css/css.css">
     <title>題組一</title>
 </head>
 
 <body>
+    <div id="cover" style="display:none; ">
+        <div id="coverr">
+            <a style="position:absolute; right:3px; top:4px; cursor:pointer; z-index:9999;" onclick="cl('#cover')">X</a>
+            <div id="cvr" style="position:absolute; width:99%; height:100%; margin:auto; z-index:9898;"></div>
+        </div>
+    </div>
     <header class="container">
         <img src="" alt="">
     </header>
@@ -36,7 +43,7 @@
             </table>
 
             <div class="d-flex justify-content-between">
-                <div><input type="button" value="新增網站標題圖片"></div>
+                <div><input type="button" value="新增網站標題圖片" onclick="op('#cover','#cvr','view.php?do=title')"></div>
                 <div><input type="submit" value="修改確定"><input type="reset" value="重置"></div>
                 <div></div>
             </div>
@@ -48,8 +55,8 @@
 
 
 
-
-
+    <script src="../css/js/jquery-3.4.1.min.js"></script>
+    <script src="../css/js/js.js"></script>
     <script src="./css/js/bootstrap.js"></script>
 </body>
 
