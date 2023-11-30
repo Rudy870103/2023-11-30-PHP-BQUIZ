@@ -1,3 +1,4 @@
+<?php include_once "db.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,6 +27,7 @@
 
         <form action="" method="post">
             <table class="table table-bordered text-center">
+
                 <tr>
                     <td>網站標題</td>
                     <td>替代文字</td>
@@ -33,17 +35,24 @@
                     <td>刪除</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td><img src="" alt="" style="width:300px;height:30px"></td>
-                    <td><input type="text" name="" id="" style="width: 90%;height:30px"></td>
-                    <td><input type="radio" name="" id=""></td>
-                    <td><input type="checkbox" name="" id=""></td>
-                    <td><input class="btn btn-success" type="button" value="更新圖片"></td>
-                </tr>
+                <?php
+                $rows = $Title->all();
+                foreach ($rows as $row) {
+                ?>
+                    <tr>
+                        <td><img src="./img/<?= $row['img']; ?>" alt="" style="width:300px;height:30px"></td>
+                        <td><input type="text" name="" id="" value="<?= $row['text']; ?>" style="width: 90%"></td>
+                        <td><input type="radio" name="" id=""></td>
+                        <td><input type="checkbox" name="" id=""></td>
+                        <td><input class="btn btn-success" type="button" value="更新圖片"></td>
+                    </tr>
+                <?php
+                }
+                ?>
             </table>
 
             <div class="d-flex justify-content-between">
-                <div><input type="button" value="新增網站標題圖片" onclick="op('#cover','#cvr','view.php?do=title')"></div>
+                <div><input type="button" value="新增網站標題圖片" onclick="op('#cover','#cvr','title.php')"></div>
                 <div><input type="submit" value="修改確定"><input type="reset" value="重置"></div>
                 <div></div>
             </div>
