@@ -15,7 +15,7 @@
     <main class="container"></main>
 <fieldset>
     <legend>目前位置 : 首頁 > 問卷調查</legend>
-    <table>
+    <table class="table">
         <tr>
             <th>編號</th>
             <th>問卷題目</th>
