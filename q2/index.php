@@ -13,7 +13,7 @@
     <header class="p-5">
         <h1 class="text-center">問卷調查</h1>
     </header>
-    <main class="container col-9">
+    <main class="container col-6">
         <fieldset>
             <legend>目前位置 : 首頁 > 問卷調查</legend>
 
