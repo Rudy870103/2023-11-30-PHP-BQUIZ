@@ -1,3 +1,4 @@
+<?php include_once "db.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +16,7 @@
     <main class="container p-3">
         <fieldset>
             <legend>新增問卷</legend>
-            <form action="add_que.php" method="post">
+            <form action="./api/add_que.php" method="post">
                 <!-- 主題 -->
                 <div class="d-flex">
                     <div class="col-3 bg-light p-2">問卷名稱</div>
@@ -33,10 +34,43 @@
                     <input type="submit" value="新增">
                     <input type="reset" value="清空">
                 </div>
+            </form>
+        </fieldset>
+
+        <fieldset>
+            <legend>問卷列表</legend>
+            <div class="col-9 mx-auto">
+            <table class="table">
+            <tr>
+                <td>編號</td>
+                <td>主題內容</td>
+                <td>操作</td>
+            </tr>
+            <?php
+            $ques = $Que->all(['subject_id' => 0]);
+            foreach ($ques as $idx => $que) {
+            ?>
+            <tr>
+                <td><?= $idx + 1; ?></td>
+                <td><?= $que['text']; ?></td>
+                <td>
+                    <button class="btn btn-primary">顯示</button>
+                    <button class="btn btn-success">編輯</button>
+                    <a href="./api/del.php?id=<?= $que['id']; ?>">
+                    <button class="btn btn-danger">刪除</button>
+                    </a>
+                </td>
+            </tr>
+            <?php
+            }
+            ?>
+            </table>
+            </div>
+        </fieldset>
+
     </main>
 
-    </form>
-    </fieldset>
+
 
     <script src="../css/js/jquery-3.4.1.min.js"></script>
     <script src="./css/js/bootstrap.js"></script>
@@ -45,14 +79,11 @@
 </html>
 
 <script>
-
-function more(){
-    let opt=`<div class="p-2">
+    function more() {
+        let opt = `<div class="p-2">
                         <label for="">選項</label>
                         <input type="text" name="opt[]">
                     </div>`
-                $("#option").before(opt)
-}
-
-
+        $("#option").before(opt)
+    }
 </script>
